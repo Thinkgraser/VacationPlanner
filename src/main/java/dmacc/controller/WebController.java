@@ -1,11 +1,14 @@
 package dmacc.controller;
 
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import dmacc.beans.Account;
 import dmacc.repository.AccountRepository;
@@ -37,6 +40,25 @@ public String addNewAccount(@ModelAttribute Account a, Model model) {
 		model.addAttribute("newAccount", a);
 		model.addAttribute("error", "Email is already registered");
 		return "register";
+	}
+	
+}
+@GetMapping("/loginAccount")
+public String addLoginAccount(Model model) {
+	Account a = new Account();
+	model.addAttribute("newAccount", a);
+	return "login";
+}
+@PostMapping("/processLogin")
+public String loginAccount(@ModelAttribute Account a, Model model) {
+	Account l = repo.findOneByEmail(a.getEmail());
+	if(!Objects.isNull(l) && l.getPassword().equals(a.getPassword())) {
+		System.out.println("Login Successfull");
+		return ""; // change to whatever our main page will be
+	}else {
+		model.addAttribute("newAccount", a);
+		model.addAttribute("error", "Incorrect Email Or Password!");
+		return "login";
 	}
 	
 }
