@@ -11,12 +11,15 @@ public class Hotel {
 	private String hotelName;
 	private int roomNumber;
 	private boolean occupied;
+	private Address hotelAddress;
 	
-	public Hotel(String hotelName, int roomNumber, boolean occupied) {
+	
+	public Hotel(String hotelName, int roomNumber, boolean occupied, Address hotelAddress) {
 		super();
 		this.hotelName = hotelName;
 		this.roomNumber = roomNumber;
 		this.occupied = occupied;
+		this.hotelAddress = hotelAddress;
 	}
 	
 	public Hotel(int roomNumber, boolean occupied) {
@@ -72,6 +75,14 @@ public class Hotel {
 	 */
 	public void setOccupied(boolean occupied) {
 		this.occupied = occupied;
+	}
+
+	public Address getHotelAddress() {
+		return hotelAddress;
+	}
+
+	public void setHotelAddress(Address hotelAddress) {
+		this.hotelAddress = hotelAddress;
 	}
 	
 	
