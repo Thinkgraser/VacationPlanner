@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -14,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Car {
 	@Id
 	@GeneratedValue
-	private int carId;
+	private long id;
 	private String make;
 	private String model;
 	private int year;
@@ -25,5 +26,4 @@ public class Car {
 	private String fuelType;
 	private String dealershipName;
 	private Address dealershipAddress;
-	
 }

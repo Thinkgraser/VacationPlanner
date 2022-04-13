@@ -14,11 +14,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Account {
 	@Id
 	@GeneratedValue
-	private long accountId;
+	private long id;
 	@Column(unique=true)
 	private String email;
 	private String password;
