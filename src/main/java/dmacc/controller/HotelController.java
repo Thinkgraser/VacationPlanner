@@ -25,13 +25,14 @@ public class HotelController {
 	public String addNewHotel(Model model) {
 		Hotel h = new Hotel();
 		model.addAttribute("newHotel", h);
-		return "input";
+		return "hotel";
 	}
 	
-	//@PostMapping("/inputHotel")
-	//public String addNewHotel(@ModelAttribute Hotel h, Model model) {
-		//repo.save(h);
-		//return 
-	//}
+	@PostMapping("/inputHotel")
+	public String addNewHotel(@ModelAttribute Hotel h, Model model) {
+		repo.save(h);
+		System.out.println("Hotel Created!");
+		return "";
+	}
 	
 }
