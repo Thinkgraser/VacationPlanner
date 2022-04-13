@@ -13,6 +13,9 @@ public class Hotel {
 	private boolean occupied;
 	private Address hotelAddress;
 	
+	public Hotel() {
+		super();
+	}
 	
 	public Hotel(String hotelName, int roomNumber, boolean occupied, Address hotelAddress) {
 		super();

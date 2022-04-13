@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Hotel Insert Page</title>
+<title>Insert a new hotel</title>
 </head>
 <body>
-
+<form th:object="${newHotel}" th:action="@{/inputHotel}" method='POST'>
+Hotel Name: <input name="hotelName" size = "20"><br />
+Room Number: <input name="roomNumber" size="20"><br />
+Address: <input name="address" size="20">
+<input name="submit" type="submit" value="submit" />
+</form>
+<a href="viewAll">View all rooms</a>
 </body>
 </html>
